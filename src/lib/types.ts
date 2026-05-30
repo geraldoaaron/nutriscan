@@ -1,12 +1,14 @@
 export interface ReferenceObject {
-  name: string;
+  name_en: string;
+  name_id: string;
   detected: boolean;
   confidence: number;
 }
 
 export interface DetectedFood {
   id: string;
-  name: string;
+  name_en: string;
+  name_id: string;
   category?: string;
   estimated_weight_grams: number;
   original_weight_grams: number;

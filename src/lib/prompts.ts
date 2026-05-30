@@ -20,13 +20,15 @@ Return ONLY valid JSON with no markdown formatting, no code blocks, no explanati
 Required JSON structure:
 {
   "reference_object": {
-    "name": "object_name",
+    "name_en": "object_name_in_english",
+    "name_id": "object_name_in_indonesian",
     "detected": true,
     "confidence": 94
   },
   "foods": [
     {
-      "name": "Food Name",
+      "name_en": "Food Name in English",
+      "name_id": "Food Name in Indonesian",
       "category": "Category",
       "estimated_weight_grams": 220,
       "calories": 286,
@@ -46,7 +48,8 @@ Required JSON structure:
 
 If no reference object is detected, set reference_object to:
 {
-  "name": "none",
+  "name_en": "none",
+  "name_id": "tidak ada",
   "detected": false,
   "confidence": 0
 }
@@ -57,7 +60,7 @@ Important rules:
 - Calculate totals as the sum of all individual food items
 - Weight estimates should be practical serving sizes
 - Confidence scores: 85-100 = High, 60-84 = Medium, below 60 = Low
-- MUST TRANSLATE ALL food names and reference object names into this language: ${language === 'id' ? 'Indonesian (Bahasa Indonesia)' : 'English'}`;
+- MUST ALWAYS provide both English and Indonesian translations for all names!`;
 
 export const getUserPrompt = (language: string) =>
-  `Analyze this meal image and return the nutritional breakdown as JSON. Remember to use ${language === 'id' ? 'Indonesian' : 'English'} for the names.`;
+  `Analyze this meal image and return the nutritional breakdown as JSON. Please ensure name_en and name_id are correctly translated.`;

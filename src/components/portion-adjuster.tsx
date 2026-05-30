@@ -19,7 +19,7 @@ export function PortionAdjuster({
   onAdjust,
   onConfirm,
 }: PortionAdjusterProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -43,7 +43,7 @@ export function PortionAdjuster({
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-semibold text-foreground">
-                  {food.name}
+                  {language === 'id' ? food.name_id || (food as any).name || food.name_en : food.name_en || (food as any).name || food.name_id}
                 </p>
                 <p className="text-xs text-muted-foreground">
                   {t("adjust.estimated")} {food.original_weight_grams}g

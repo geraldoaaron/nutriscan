@@ -9,7 +9,7 @@ interface NutritionTableProps {
 }
 
 export function NutritionTable({ foods, totals }: NutritionTableProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   return (
     <div className="space-y-2">
       <div className="flex justify-end sm:hidden px-1">
@@ -37,7 +37,7 @@ export function NutritionTable({ foods, totals }: NutritionTableProps) {
                 className="transition-colors hover:bg-muted/30"
               >
                 <td className="px-4 py-3 font-medium text-foreground truncate max-w-[120px] sm:max-w-[200px]">
-                  {food.name}
+                  {language === 'id' ? food.name_id || (food as any).name || food.name_en : food.name_en || (food as any).name || food.name_id}
                 </td>
                 <td className="px-4 py-3 text-right text-muted-foreground">
                   {food.estimated_weight_grams}g

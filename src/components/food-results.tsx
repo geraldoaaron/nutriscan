@@ -18,7 +18,7 @@ interface FoodResultsProps {
 }
 
 export function FoodResults({ foods, referenceObject }: FoodResultsProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   function getConfidenceLabel(confidence: number): string {
     if (confidence >= 85) return t("conf.high");
@@ -49,7 +49,7 @@ export function FoodResults({ foods, referenceObject }: FoodResultsProps) {
               <span className="text-emerald-300">
                 {t("ref.detected")}{" "}
                 <span className="font-semibold capitalize">
-                  {referenceObject.name.replace(/_/g, " ")}
+                  {((language === 'id' ? referenceObject.name_id || (referenceObject as any).name || referenceObject.name_en : referenceObject.name_en || (referenceObject as any).name || referenceObject.name_id) || "").replace(/_/g, " ")}
                 </span>
                 <span className="ml-1 text-emerald-400/70">
                   ({referenceObject.confidence}%)
@@ -92,7 +92,7 @@ export function FoodResults({ foods, referenceObject }: FoodResultsProps) {
 
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold text-foreground truncate">
-                {food.name}
+                {language === 'id' ? food.name_id || (food as any).name || food.name_en : food.name_en || (food as any).name || food.name_id}
               </p>
               <p className="text-xs text-muted-foreground">
                 {food.estimated_weight_grams}g
