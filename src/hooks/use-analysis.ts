@@ -80,6 +80,7 @@ export function useAnalysis() {
         body: JSON.stringify({
           image: base64,
           mimeType: imageFile.type,
+          language: language,
         }),
       });
 
@@ -100,7 +101,7 @@ export function useAnalysis() {
       setError({ message });
       setState("idle");
     }
-  }, [imageFile]);
+  }, [imageFile, language]);
 
   const adjustPortion = useCallback(
     (foodId: string, newWeight: number) => {
