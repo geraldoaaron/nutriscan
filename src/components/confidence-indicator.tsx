@@ -3,10 +3,10 @@
 import { Shield, ShieldCheck, ShieldAlert, ShieldX, Eye, Crosshair, UtensilsCrossed } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import type { DetectedFood, ReferenceObject } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/components/language-provider";
@@ -58,10 +58,10 @@ export function ConfidenceIndicator({ foods, referenceObject }: ConfidenceIndica
   const Icon = config.icon;
 
   return (
-    <Tooltip>
-      <TooltipTrigger
+    <Popover>
+      <PopoverTrigger
         className={cn(
-          "flex items-center gap-2 rounded-xl border px-4 py-3 cursor-help transition-colors w-full text-left",
+          "flex items-center gap-2 rounded-xl border px-4 py-3 cursor-pointer transition-colors w-full text-left outline-none",
           config.bg,
           config.border
         )}
@@ -77,9 +77,9 @@ export function ConfidenceIndicator({ foods, referenceObject }: ConfidenceIndica
             {t("conf.factors")} {compositeScore}%
           </p>
         </div>
-      </TooltipTrigger>
+      </PopoverTrigger>
       
-      <TooltipContent side="top" className="flex-col items-stretch w-64 space-y-2 p-3 bg-card border border-white/10">
+      <PopoverContent side="top" className="flex flex-col items-stretch w-64 space-y-2 p-3 bg-card border border-white/10">
         <p className="font-semibold text-xs text-foreground mb-2">{t("conf.breakdown")}</p>
         
         <div className="flex justify-between items-center text-xs">
@@ -107,7 +107,7 @@ export function ConfidenceIndicator({ foods, referenceObject }: ConfidenceIndica
           </div>
           <span className="font-medium text-foreground">{complexityScore}% ({foods.length} {t("conf.items")})</span>
         </div>
-      </TooltipContent>
-    </Tooltip>
+      </PopoverContent>
+    </Popover>
   );
 }
