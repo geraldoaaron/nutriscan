@@ -69,11 +69,11 @@ export function ConfidenceIndicator({ foods, referenceObject }: ConfidenceIndica
         <div className={cn("rounded-full p-1", config.bg)}>
           <Icon className={cn("h-4 w-4", config.color)} />
         </div>
-        <div className="flex-1">
-          <p className={cn("text-xs font-semibold", config.color)}>
+        <div className="flex-1 min-w-0">
+          <p className={cn("text-xs font-semibold leading-tight", config.color)}>
             {t("conf.overall")} {config.label}
           </p>
-          <p className="text-[10px] text-muted-foreground mt-0.5">
+          <p className="text-[10px] text-muted-foreground mt-1 truncate">
             {t("conf.factors")} {compositeScore}%
           </p>
         </div>

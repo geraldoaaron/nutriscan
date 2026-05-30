@@ -165,7 +165,7 @@ export function DailyTargetsPanel({
             <div className="pt-2">
               <Button
                 onClick={() => onAddConsumed(currentMealTotals)}
-                className="w-full gap-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20 hover:text-emerald-300"
+                className="w-full gap-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20 hover:text-emerald-300 h-auto py-2.5 whitespace-normal text-center leading-tight"
                 variant="outline"
               >
                 <Plus className="h-4 w-4" />

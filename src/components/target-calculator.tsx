@@ -108,7 +108,7 @@ export function TargetCalculator({ onApplyTargets }: TargetCalculatorProps) {
         render={
           <Button
             variant="outline"
-            className="w-full gap-2 border-cyan-500/30 bg-cyan-500/5 text-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300"
+            className="w-full gap-2 border-cyan-500/30 bg-cyan-500/5 text-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300 h-auto py-2.5 whitespace-normal text-center leading-tight"
             id="open-calculator-btn"
           />
         }
