@@ -44,19 +44,19 @@ function AnimatedNumber({ target, duration = 1000 }: { target: number; duration?
 function StatCard({ label, value, unit, icon, gradient, shadowColor, delay }: StatCardProps) {
   return (
     <div
-      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-card/50 p-5 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-white/20 animate-in fade-in slide-in-from-bottom-4"
+      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-card/50 p-4 sm:p-5 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-white/20 animate-in fade-in slide-in-from-bottom-4"
       style={{ animationDelay: `${delay}ms` }}
     >
       {/* Background glow */}
       <div className={`absolute -right-4 -top-4 h-24 w-24 rounded-full ${gradient} opacity-10 blur-2xl transition-opacity group-hover:opacity-20`} />
 
-      <div className="relative flex items-start justify-between">
-        <div className="space-y-1">
-          <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+      <div className="relative flex items-start justify-between gap-2">
+        <div className="space-y-1 min-w-0 flex-1">
+          <p className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-muted-foreground leading-tight">
             {label}
           </p>
           <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold tracking-tight text-foreground">
+            <span className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground truncate">
               <AnimatedNumber target={value} />
             </span>
             <span className="text-sm font-medium text-muted-foreground">

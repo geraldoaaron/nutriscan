@@ -43,7 +43,7 @@ export default function Home() {
   } = useDailyTargets();
 
   return (
-    <div className="flex min-h-screen flex-col bg-mesh">
+    <div className="flex min-h-screen flex-col bg-mesh overflow-x-hidden">
       <Header />
 
       <main className="flex-1">
