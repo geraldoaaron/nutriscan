@@ -70,6 +70,7 @@ const en: Dictionary = {
   "nutri.total_pro": "Total Protein",
   "nutri.total_fat": "Total Fat",
   "nutri.total_carb": "Total Carbs",
+  "nutri.swipe_hint": "Swipe table to see more 👉",
 
   // Daily Targets
   "targets.title": "Daily Targets",
@@ -187,6 +188,7 @@ const id: Dictionary = {
   "nutri.total_pro": "Total Protein",
   "nutri.total_fat": "Total Lemak",
   "nutri.total_carb": "Total Karbo",
+  "nutri.swipe_hint": "Geser tabel ke kanan untuk detail 👉",
 
   // Daily Targets
   "targets.title": "Target Harian",

@@ -1,7 +1,6 @@
 "use client";
 
 import type { DetectedFood, NutritionTotals } from "@/lib/types";
-import { Separator } from "@/components/ui/separator";
 import { useLanguage } from "@/components/language-provider";
 
 interface NutritionTableProps {
@@ -12,8 +11,14 @@ interface NutritionTableProps {
 export function NutritionTable({ foods, totals }: NutritionTableProps) {
   const { t } = useLanguage();
   return (
-    <div className="overflow-hidden rounded-xl border border-white/10 bg-card shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="overflow-x-auto">
+    <div className="space-y-2">
+      <div className="flex justify-end sm:hidden px-1">
+        <p className="text-[10px] text-muted-foreground animate-pulse">
+          {t("nutri.swipe_hint")}
+        </p>
+      </div>
+      <div className="overflow-hidden rounded-xl border border-white/10 bg-card shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="overflow-x-auto pb-1 custom-scrollbar">
         <table className="w-full text-left text-sm">
           <thead className="bg-muted/50 text-xs uppercase text-muted-foreground">
             <tr>
@@ -64,7 +69,8 @@ export function NutritionTable({ foods, totals }: NutritionTableProps) {
               <td className="px-4 py-3 text-right text-yellow-400">{totals.carbs}g</td>
             </tr>
           </tfoot>
-        </table>
+          </table>
+        </div>
       </div>
     </div>
   );

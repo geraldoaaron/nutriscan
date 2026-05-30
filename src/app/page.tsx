@@ -88,9 +88,9 @@ export default function Home() {
           )}
 
           {/* Main Content Grid */}
-          <div className="grid gap-6 lg:grid-cols-12">
+          <div className="grid gap-6 lg:grid-cols-12 min-w-0">
             {/* Left Column: Main Content */}
-            <div className="lg:col-span-8 space-y-6">
+            <div className="lg:col-span-8 space-y-6 min-w-0 flex flex-col">
               {/* Upload Section */}
               {(state === "idle" || state === "analyzing") && (
                 <div className="space-y-4">
@@ -192,7 +192,7 @@ export default function Home() {
                   <Button
                     onClick={reset}
                     variant="outline"
-                    className="w-full gap-2 border-white/15 hover:bg-emerald-500/10 hover:border-emerald-500/30 hover:text-emerald-400 transition-colors h-11"
+                    className="w-full gap-2 border-white/15 hover:bg-emerald-500/10 hover:border-emerald-500/30 hover:text-emerald-400 transition-colors h-auto py-2.5 whitespace-normal leading-tight"
                     id="scan-again-btn"
                   >
                     <RotateCcw className="h-4 w-4" />
@@ -203,7 +203,7 @@ export default function Home() {
             </div>
 
             {/* Right Column: Daily Targets */}
-            <div className="lg:col-span-4 space-y-6">
+            <div className="lg:col-span-4 space-y-6 min-w-0 flex flex-col">
               {isLoaded && (
                 <div className="lg:sticky lg:top-24">
                   <DailyTargetsPanel
